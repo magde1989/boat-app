@@ -1,6 +1,7 @@
 package com.app.boat.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,8 +31,8 @@ public class BoatController {
         return (List<Boat>) boatRepository.findAll();
     }
 
-    @GetMapping("/boat/{id}")
-    public Boat getBoat(@PathVariable("id") Long id) {
+    @GetMapping("/boats/{id}")
+    public Boat getBoatById(@PathVariable("id") Long id) {
         return boatRepository.findById(id).get();
     }
 
@@ -45,5 +47,21 @@ public class BoatController {
     public HttpStatus deleteBoat(@PathVariable("id") Long id) {
         boatRepository.deleteById(id);
         return HttpStatus.OK;
+    }
+
+    @PutMapping("/boats/{id}")
+    public HttpStatus updateBoat(@PathVariable(value = "id") Long id,
+                                                   @RequestBody Boat boat){
+                                                    
+        Optional<Boat> boatFromRepo = boatRepository.findById(id);
+
+        if(boatFromRepo.isPresent()){
+            boatFromRepo.get().setName(boat.getName());
+            boatFromRepo.get().setDescription(boat.getDescription());
+            boatRepository.save(boat);
+            return HttpStatus.OK;
+        }else{
+            return HttpStatus.NOT_FOUND;
+        }    
     }
 }

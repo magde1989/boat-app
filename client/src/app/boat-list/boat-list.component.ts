@@ -22,17 +22,21 @@ export class BoatListComponent implements OnInit {
     });
   }
 
-  deleteBoat(id: number) { 
+  deleteBoat(id: number) {
     this.boatService.deleteBoat(id).subscribe(
       res => {
         console.log(res);
+
+        this.boatService.findAll().subscribe(data => {
+          this.boats = data;
+        });
+        this.router.navigate(['boats']);
       }
-    ); 
-    
-    this.boatService.findAll().subscribe(data => {
-      this.boats = data;
-    });
-    this.router.navigate(['boats']); 
+    );
+  }
+
+  updateBoat(id: number) {
+    this.router.navigate(['update-boat', id]);
   }
 
 }

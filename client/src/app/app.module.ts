@@ -12,6 +12,7 @@ import { AddBoatComponent } from './add-boat/add-boat.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HeaderComponent } from './header/header.component';
+import { UpdateBoatComponent } from './update-boat/update-boat.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     LogoutComponent,
     HeaderComponent,
-    AddBoatComponent
+    AddBoatComponent,
+    UpdateBoatComponent
   ],
   imports: [
     BrowserModule,
