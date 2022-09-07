@@ -1,10 +1,8 @@
 <header>
     <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
-    <div><a class="navbar-brand">Boat App</a></div>
-    
     <ul class="navbar-nav">
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/boats" class="nav-link">List Boats</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addboat" class="nav-link">Add Boat</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/add-boat" class="nav-link">Add Boat</a></li>
       <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
     

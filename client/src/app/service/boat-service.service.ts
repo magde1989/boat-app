@@ -9,7 +9,7 @@ export class BoatServiceService {
   private boatsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.boatsUrl = 'http://localhost:8080/boats';
+    this.boatsUrl = 'http://localhost:8080/boats/';
   }
 
   public findAll(): Observable<Boat[]> {
@@ -18,5 +18,13 @@ export class BoatServiceService {
 
   public save(boat: Boat) {
     return this.http.post<Boat>(this.boatsUrl, boat);
+  }
+
+  addBoat(boat: Object): Observable<Object> {
+    return this.http.post(`${this.boatsUrl}`, boat);
+  }
+
+  deleteBoat(id: number): Observable<any> {
+    return this.http.delete(`${this.boatsUrl}/${id}`, {responseType: 'text'});
   }
 }
