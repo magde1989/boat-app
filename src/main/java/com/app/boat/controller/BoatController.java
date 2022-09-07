@@ -23,6 +23,4 @@ public class BoatController {
     public List<Boat> getBoats() {
         return (List<Boat>) boatRepository.findAll();
     }
-
-
 }

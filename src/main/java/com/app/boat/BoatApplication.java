@@ -26,6 +26,5 @@ public class BoatApplication {
             });
             boatRepository.findAll().forEach(System.out::println);
         };
-    }
-
+    };
 }
