@@ -25,6 +25,6 @@ export class BoatServiceService {
   }
 
   deleteBoat(id: number): Observable<any> {
-    return this.http.delete(`${this.boatsUrl}/${id}`, {responseType: 'text'});
+    return this.http.delete(`${this.boatsUrl}${id}`,{responseType: 'text'});
   }
 }

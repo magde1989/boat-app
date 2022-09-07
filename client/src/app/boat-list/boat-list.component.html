@@ -6,6 +6,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -13,6 +14,9 @@
             <td>{{ boat.id }}</td>
             <td>{{ boat.name }}</td>
             <td>{{ boat.description }}</td>
+            <td>
+              <button type="button" (click)="deleteBoat(boat.id)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>
