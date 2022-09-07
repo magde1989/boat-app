@@ -21,7 +21,7 @@ public class BoatApplication {
     CommandLineRunner init(BoatRepository boatRepository) {
         return args -> {
             Stream.of("Laura", "Simona", "Jennifer", "Helen", "Rachel").forEach(name -> {
-                Boat boat = new Boat(name, name + "description");
+                Boat boat = new Boat(name, name + " Description");
 					boatRepository.save(boat);
             });
             boatRepository.findAll().forEach(System.out::println);

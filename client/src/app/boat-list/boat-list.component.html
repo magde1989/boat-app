@@ -5,7 +5,6 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Description</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -13,10 +12,10 @@
           <tr *ngFor="let boat of boats">
             <td>{{ boat.id }}</td>
             <td>{{ boat.name }}</td>
-            <td>{{ boat.description }}</td>
             <td>
               <button style='margin-right:16px' (click)="deleteBoat(boat.id)" style="margin-left: 10px" class="btn btn-danger" >Delete</button>
               <button style='margin-right:16px' (click)="updateBoat(boat.id)" class="btn btn-success" style="margin-left: 10px">Edit</button>
+              <button style='margin-right:16px' (click)="getBoatDetail(boat.id)" class="btn btn-info" style="margin-left: 10px">Show Details</button>
             </td>
           </tr>
         </tbody>

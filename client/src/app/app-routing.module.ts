@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddBoatComponent } from './add-boat/add-boat.component';
+import { BoatDetailComponent } from './boat-detail/boat-detail.component';
 import { BoatListComponent } from './boat-list/boat-list.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'add-boat', component: AddBoatComponent, canActivate:[AuthGaurdService]},
-  { path: 'update-boat/:id', component: UpdateBoatComponent, canActivate:[AuthGaurdService]}
+  { path: 'update-boat/:id', component: UpdateBoatComponent, canActivate:[AuthGaurdService]},
+  { path: 'boat-detail/:id', component: BoatDetailComponent, canActivate:[AuthGaurdService]}
 ];
 
 @NgModule({

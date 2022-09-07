@@ -39,4 +39,8 @@ export class BoatListComponent implements OnInit {
     this.router.navigate(['update-boat', id]);
   }
 
+  getBoatDetail(id: number) {
+    this.router.navigate(['boat-detail', id]);
+  }
+
 }
